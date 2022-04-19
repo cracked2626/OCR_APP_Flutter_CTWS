@@ -1,3 +1,4 @@
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_mobile_vision_2/flutter_mobile_vision_2.dart';
@@ -46,33 +47,46 @@ class _ScanPageState extends State<ScanPage> {
         backpressed(context);
         return false;
       },
-      child: Card(
-        color: Colors.grey.shade700,
-        child: InkWell(
-          onTap: () {
-            _read();
-            // Navigator.pushNamed(context, MyRoutes.scanpage);
-            // setState(() {});
-          },
-          // hoverColor: Colors.orange,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.white),
-            ),
-            height: 40,
-            width: 400,
-            child: Center(
-              child: Text(
-                "Scan Using Camera",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+      child:  AnimatedButton(
+        child: Text(
+          'SCAN USING CAMERA',
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
         ),
+        color: Color(0xffffdc4a),
+        onPressed: () {_read();},
+        enabled: true,
+        width: 250,
+        height: 50,
+        shadowDegree: ShadowDegree.dark,
       ),
+      // InkWell(
+      //   onTap: () {
+      //     _read();
+      //     // Navigator.pushNamed(context, MyRoutes.scanpage);
+      //     // setState(() {});
+      //   },
+      //   // hoverColor: Colors.orange,
+      //   child: Container(
+      //     decoration: BoxDecoration(
+      //       borderRadius: BorderRadius.circular(10),
+      //       border: Border.all(color: Colors.white),
+      //     ),
+      //     height: 40,
+      //     width: 400,
+      //     child: Center(
+      //       child: Text(
+      //         "Scan Using Camera",
+      //         style: TextStyle(
+      //           color: Colors.white,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
